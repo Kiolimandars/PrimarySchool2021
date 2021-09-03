@@ -4,8 +4,8 @@ export const Form = ({ onSubmit }) => {
   return (
     <form onSubmit={onSubmit}>
       <div className="form-group">
-        <label htmlFor="name">Name</label>
-        <input className="form-control" id="name" />
+        <label htmlFor="name2">Name</label>
+        <input className="form-control" id="name2" />
       </div>
       <div className="form-group">
         <label htmlFor="email">Email address</label>

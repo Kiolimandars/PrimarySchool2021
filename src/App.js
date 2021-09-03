@@ -1,25 +1,37 @@
-import React from 'react';
 import ButtonAppBar from "./Components/ButtonAppBar";
-import { Container } from './Components/Container';
-
+import { Container } from "./Components/Container";
+import React, { useState } from "react";
+import { Modal, Button } from "react-bootstrap";
+import Formulaire from "./Components/Formulaire";
 
 const App = () => {
-  const triggerText = 'Open form';
+  const triggerText = "Open form";
   const onSubmit = (event) => {
     event.preventDefault(event);
-    console.log(event.target.name.value);
+    console.log(event.target.name2.value);
     console.log(event.target.email.value);
   };
- 
 
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
-    <div >
-      <ButtonAppBar/>
+    <div>
+      <ButtonAppBar />
       <Container triggerText={triggerText} onSubmit={onSubmit} />
-    </div>
-    
-  );
-  
-}
+      <Button onClick={handleShow}>Popup</Button>
+      <Modal
+        className="loginbox-container"
+        size="lg"
+        show={show}
+        onHide={handleClose}
+      >
+        <Modal.Header closeButton></Modal.Header>
 
-export default App
+        <Formulaire />
+      </Modal>
+    </div>
+  );
+};
+
+export default App;
